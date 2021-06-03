@@ -9,7 +9,7 @@ public class ConnectToDB {
         MongoClient mongo= new MongoClient("localhost", 27017);
 
         //Creazione credenziali
-        MongoCredendial credential;
+        MongoCredential credential;
         credential = MongoCredential.createCredential("sampleUser", "alberiMonumentali", "password".toCharArray());
         System.out.println("la connessione con il database ha avuto successo");
 

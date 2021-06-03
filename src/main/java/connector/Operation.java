@@ -1,5 +1,10 @@
 package connector;
 import java.util.Iterator;
+
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 
 public class Operation {
@@ -35,7 +40,7 @@ public class Operation {
         int i=1;
 
         //ritorna iteratore
-        Interator it = iterDoc.iterator();
+        Iterator it = iterDoc.iterator();
 
         while(it.hasNext()){
             System.out.println(it.next());
@@ -47,7 +52,7 @@ public class Operation {
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
-        collection.updateOne(Filters.eq("Fid", myFid), Update.set("ALTEZZA", myAltezza));
+        collection.updateOne(Filters.eq("Fid", myFid), Updates.set("ALTEZZA", myAltezza));
         System.out.println("Altezza modificata con successo");
 
         //dopo modifica

@@ -2,9 +2,8 @@ package connector;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import org.bson.Documenti;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoCredential;
+import org.bson.Document;
+
 
 public class MyCollection {
 
@@ -14,7 +13,7 @@ public class MyCollection {
 
         //creare una collezione
         database.createCollection("collectionAlberi");
-        System.out.println("Collezione creata con successo")
+        System.out.println("Collezione creata con successo");
     }
 
     public  MongoCollection<Document> getMyCollection(){
