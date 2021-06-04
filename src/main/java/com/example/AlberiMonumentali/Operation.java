@@ -1,16 +1,29 @@
-package connector;
+package com.example.AlberiMonumentali;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
 
+import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import connector.MyCollection;
+import connector.MyCollectionUser;
 import org.bson.Document;
 
-public class Operation {
 
-    //per inserire valori
-    public void insert(Integer myfid, String myName, String myProvincia, String myLocalita, Integer myAltitudine, String myNomeScientifico, String myNomevolgare, Integer myAltezza, String mySchede, Double mylat, Double mylng){
+
+public class Operation {
+    public boolean cercaUser(String username, String password){
+        MyCollectionUser sc = new MyCollectionUser();
+        MongoCollection<Document> collection= sc.getMyCollection();
+
+        return true;
+    }
+
+    //per inserire valori FUNZIONA
+    public void insert(String myfid, String myName, String myProvincia, String myLocalita, Double myAltitudine, String myNomeScientifico, String myNomevolgare, Double myAltezza, String mySchede, String mylat, String mylng){
 
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
@@ -30,8 +43,8 @@ public class Operation {
         System.out.println("Documento inserito con successo");
     }
 
-    //per ritornate tutti i valori
-    public void retrieve(){
+    //per ritornate tutti i valori FUNZIONA
+    public ArrayList<AlberiMonumentaliBean> retrieve(){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
@@ -41,32 +54,28 @@ public class Operation {
 
         //ritorna iteratore
         Iterator it = iterDoc.iterator();
-
+        ArrayList<AlberiMonumentaliBean> arrayAlberi= new ArrayList<AlberiMonumentaliBean>();
         while(it.hasNext()){
-            System.out.println(it.next());
+            org.bson.Document document= (org.bson.Document) it.next();
+
+            AlberiMonumentaliBean albero= new AlberiMonumentaliBean(document.getString("Fid"),document.getString("NAME"), document.getString("PROVINCIA"), document.getString("LOCALITA"), document.getDouble("ALTITUDINE"), document.getString("NOME_SCIENTIFICO"), document.getString("NOME_VOLGARE"), document.getDouble("ALTEZZA"), document.getString("SCHEDA"),document.getString("LATITUDINE"),document.getString("LONGITUDINE"));
+            arrayAlberi.add(albero);
             i++;
         }
+       return arrayAlberi;
     }
-    //per modificare altezza
-    public void update(Integer myFid, Integer myAltezza){
+    //per modificare altezza FUNZIONA
+    public void update(String myFid, Double myAltezza){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
         collection.updateOne(Filters.eq("Fid", myFid), Updates.set("ALTEZZA", myAltezza));
         System.out.println("Altezza modificata con successo");
 
-        //dopo modifica
-        FindIterable<Document> iterDoc= collection.find();
-        int i=1;
-        Iterator it= iterDoc.iterator();
-        while(it.hasNext()){
-            System.out.println(it.next());
-            i++;
-        }
     }
 
-    //cancellare documento
-    public void remove(Integer myFid){
+    //cancellare documento FUNZIONA
+    public void remove(String myFid){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
