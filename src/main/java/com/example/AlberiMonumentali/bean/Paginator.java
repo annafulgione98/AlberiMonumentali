@@ -1,4 +1,4 @@
-package com.example.AlberiMonumentali;
+package com.example.AlberiMonumentali.bean;
 
 public class Paginator <E> {
     private int numEl;

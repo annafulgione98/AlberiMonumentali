@@ -1,9 +1,9 @@
-package com.example.AlberiMonumentali;
+package com.example.AlberiMonumentali.operdb;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Level;
 
-import com.google.gson.Gson;
+import com.example.AlberiMonumentali.bean.AlberiMonumentaliBean;
+import com.example.AlberiMonumentali.bean.UserBean;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
@@ -15,11 +15,37 @@ import org.bson.Document;
 
 
 public class Operation {
-    public boolean cercaUser(String username, String password){
+    public boolean getUser(String myusername, String password){
         MyCollectionUser sc = new MyCollectionUser();
         MongoCollection<Document> collection= sc.getMyCollection();
 
-        return true;
+        //ritorna oggetto iterabile - { "username":{ $eq: myusername }  }
+        FindIterable<Document> iterDoc= collection.find();
+        int i=1;
+
+        //ritorna iteratore
+        Iterator it = iterDoc.iterator();
+        ArrayList<UserBean> arrayuser= new ArrayList<UserBean>();
+        while(it.hasNext()){
+            Document document= (Document) it.next();
+
+            UserBean user= new UserBean(document.getString("username"),  document.getString("password"));
+            arrayuser.add(user);
+            i++;
+        }
+        Boolean flag= findUser(myusername,password,arrayuser);
+        return flag;
+    }
+    private boolean findUser( String myusername, String password, ArrayList<UserBean> arrayuser){
+        for (int i=0;i<arrayuser.size();i++){
+            System.out.println(arrayuser.get(i).getUsername());
+            if(arrayuser.get(i).getUsername().equals(myusername)){
+                if(arrayuser.get(i).getPassword().equals(password)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //per inserire valori FUNZIONA

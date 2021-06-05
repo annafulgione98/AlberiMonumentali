@@ -1,4 +1,4 @@
-package com.example.AlberiMonumentali;
+package com.example.AlberiMonumentali.bean;
 
 public class AlberiMonumentaliBean {
     private Object _id;
