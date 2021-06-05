@@ -1,4 +1,5 @@
-
+<%@ page import="com.example.AlberiMonumentali.bean.AlberiMonumentaliBean" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -11,14 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/indexcss.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <title>Catalogo</title>
 </head>
 <body>
 
 <%@include file= "navbar.jsp" %>
-
+<%
+    ArrayList<AlberiMonumentaliBean> list =(ArrayList<AlberiMonumentaliBean>) request.getAttribute("arrayAlberi");
+%>
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
     <a name="who"></a>
@@ -33,6 +36,7 @@
         <div class="row ">
             <div class="card x">
                 <div class="cart-list">
+
                     <h1>Lista degli alberi monumentali della Campania</h1>
                     <table class="table">
                         <thead class="thead-primary">
@@ -47,7 +51,21 @@
                             <th>Scheda</th>
                         </tr>
                         </thead>
-
+                        <tbody>
+                        <%
+                            for (AlberiMonumentaliBean e : list) { %>
+                        <tr>
+                            <td><%=e.getName()%></td>
+                            <td><%=e.getProvincia()%></td>
+                            <td><%=e.getLocalita()%></td>
+                            <td><%=e.getAltitudine()%></td>
+                            <td><%=e.getNomeScientifico()%></td>
+                            <td><%=e.getNomevolgare()%></td>
+                            <td><%=e.getAltezza()%></td>
+                            <td><%=e.getSchede()%></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
                     </table>
 
                     <p style = "text-align: center">pg <input class = "pageof" type = "number" value = "1" min="1" max="<%= request.getAttribute("maxPg") %>"> of <%= request.getAttribute("maxPg") %> <button id = "submit">Invia</button></p>
