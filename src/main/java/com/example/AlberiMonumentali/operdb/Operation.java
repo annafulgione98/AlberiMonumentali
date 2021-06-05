@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.example.AlberiMonumentali.bean.AlberiMonumentaliBean;
+import com.example.AlberiMonumentali.bean.UserBean;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
@@ -14,6 +15,7 @@ import org.bson.Document;
 
 
 public class Operation {
+
     public boolean getUser(String myusername, String password){
         MyCollectionUser sc = new MyCollectionUser();
         MongoCollection<Document> collection= sc.getMyCollection();
@@ -33,13 +35,16 @@ public class Operation {
             i++;
         }
         Boolean flag= findUser(myusername,password,arrayuser);
+        System.out.print(flag);
         return flag;
     }
     private boolean findUser( String myusername, String password, ArrayList<UserBean> arrayuser){
         for (int i=0;i<arrayuser.size();i++){
             System.out.println(arrayuser.get(i).getUsername());
+            System.out.println(arrayuser.get(i).getPassword());
             if(arrayuser.get(i).getUsername().equals(myusername)){
                 if(arrayuser.get(i).getPassword().equals(password)){
+                    System.out.println(arrayuser.get(i).getPassword());
                     return true;
                 }
             }

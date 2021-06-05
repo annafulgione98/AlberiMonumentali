@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<%@include file= "navbar.jsp" %>
+<%@include file= "navbarAdmin.jsp" %>
 
 <!-- Second Container -->
 <div  class="container-fluid bg-2 text-center">

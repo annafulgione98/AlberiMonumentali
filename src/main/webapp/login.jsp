@@ -17,7 +17,7 @@
 
 <h2>Bentornato</h2>
 
-<form action="loginServlet" method="post">
+<form action="Login" method="post" >
     <div class="imgcontainer">
         <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
@@ -26,16 +26,14 @@
         <%--@declare id="uname"--%>
         <%--@declare id="psw"--%>
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <input style="color: black" type="text" placeholder="Enter Username" name="uname" required>
 
         <label  for="psw"><b>Password</b></label>
         <input style="color:black" type="password" placeholder="Enter Password" name="psw" required>
 
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
 
     </div>
-
-
 </form>
 
 <%@include file= "footer.jsp" %>
