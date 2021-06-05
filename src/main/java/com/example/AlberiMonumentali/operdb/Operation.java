@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.example.AlberiMonumentali.bean.AlberiMonumentaliBean;
-import com.example.AlberiMonumentali.bean.UserBean;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;

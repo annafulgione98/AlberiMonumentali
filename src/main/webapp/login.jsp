@@ -7,8 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
     <link rel="stylesheet" href="css/logincss.css">
+    <link rel="stylesheet" href="css/indexcss.css">
 
 </head>
 <body>
@@ -17,7 +17,7 @@
 
 <h2>Bentornato</h2>
 
-<form action="/action_page.php" method="post">
+<form action="loginServlet" method="post">
     <div class="imgcontainer">
         <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
@@ -25,11 +25,11 @@
     <div id="form" class="container">
         <%--@declare id="uname"--%>
         <%--@declare id="psw"--%>
-        <label  for="uname"><b>Username</b></label>
+        <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
 
         <label  for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input style="color:black" type="password" placeholder="Enter Password" name="psw" required>
 
         <button type="submit">Login</button>
 

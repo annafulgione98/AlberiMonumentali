@@ -18,9 +18,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#who">CHI SIAMO</a></li>
+                <li><a href="index.jsp">CHI SIAMO</a></li>
                 <li><a href="catalogo.jsp">CATALOGO</a></li>
-                <li><a href="#caratteristiche">CARATTERISTICHE</a></li>
+                <li><a href="index.jsp#caratteristiche">CARATTERISTICHE</a></li>
                 <li><a href="login.jsp">LOGIN</a></li>
             </ul>
         </div>

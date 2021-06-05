@@ -22,10 +22,12 @@
     <a name="who"></a>
     <h3 class="margin">Alberi monumentali della regione Campania</h3>
     <img src="img/copertina.jpeg" class="img-responsive img-circle margin" style="display:inline" alt="copertina" width="550" height="550">
-
+    <p style="color: white">Gli alberi monumentali sono soggetti vegetali
+        di particolare valore paesaggistico, naturalistico, monumentale,
+        storico e culturale, in genere ufficialmente repertoriati per alcune loro particolarita'.
+        In territorio campano e' caratterizzato da circa 134 alberi monumentali.
+    </p>
 </div>
-
-
 
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center ">

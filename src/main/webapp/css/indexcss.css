@@ -10,8 +10,14 @@ body {
     color: #ffffff;
 }
 .bg-2 {
+    background-color: white;
+}
 
-    color: #ffffff;
+th{
+    color: black;
+}
+h1{
+    color: black;
 }
 .bg-3 {
     background-color: #ffffff; /* White */
@@ -33,6 +39,8 @@ body {
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    
+
 }
 .navbar-nav  li a:hover {
     color: #27ae60 !important;

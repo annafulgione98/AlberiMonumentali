@@ -37,8 +37,6 @@
                     <table class="table">
                         <thead class="thead-primary">
                         <tr class="text-center">
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
                             <th>Luogo</th>
                             <th>Provincia</th>
                             <th>Localit&#224;</th>

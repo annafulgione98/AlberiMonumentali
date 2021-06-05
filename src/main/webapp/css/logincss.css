@@ -1,5 +1,4 @@
-
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font: 20px Montserrat, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
@@ -9,11 +8,13 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-
+    color: black;
 }
-
+label{
+    color:black;
+}
 button {
-    background-color: #04AA6D;
+    background-color: #27ae60;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -45,11 +46,13 @@ h2 {
 span.psw {
     float: right;
     padding-top: 16px;
+
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
+
         display: block;
         float: none;
     }
