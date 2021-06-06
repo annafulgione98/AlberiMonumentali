@@ -20,13 +20,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.jsp">HOME</a>
+            <a class="navbar-brand" href="homeAdmin.jsp">HOME</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.jsp">CHI SIAMO</a></li>
-                <li><a href="catalogo.jsp">CATALOGO</a></li>
-                <li><a href="index.jsp#caratteristiche">CARATTERISTICHE</a></li>
+                <li><a href="homeAdmin.jsp">Home</a></li>
+                <li><a href="ServletCatalogAdmin">CATALOGO</a></li>
                 <li> <a href="Logout" class="btn">
                         <span class="glyphicon glyphicon-log-out"></span> Log out
                     </a>

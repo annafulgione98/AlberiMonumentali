@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Login", value = "/Login")
 public class Login extends HttpServlet {
@@ -25,6 +26,7 @@ public class Login extends HttpServlet {
     // This method is called by the servlet container to process a 'post' request
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
+        HttpSession session = req.getSession();
         String  param1 = req.getParameter("uname");
                      System.out.println(param1);
                String param2 = req.getParameter("psw");
@@ -35,16 +37,13 @@ public class Login extends HttpServlet {
         boolean flag= op.getUser(param1, param2);
         System.out.println(flag);
         if(flag){
-
+            session.setAttribute("isAdmin", true);
+            System.out.println("CI ARRIVO");
             resp.setContentType("text/html");
-
-            req.getRequestDispatcher(resp.encodeURL("/catalogoadmin.jsp")).forward(req, resp);
-
-
+            req.getRequestDispatcher(resp.encodeURL("/homeAdmin.jsp")).forward(req, resp);
         }
         else{
             resp.setContentType("text/html");
-
             req.getRequestDispatcher(resp.encodeURL("/index.jsp")).forward(req, resp);
         }
     }
