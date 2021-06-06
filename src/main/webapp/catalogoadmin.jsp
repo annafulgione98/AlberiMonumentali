@@ -45,7 +45,7 @@
                         <tbody>
                         <%
                             for (AlberiMonumentaliBean e : list) { %>
-                        <tr>
+                        <tr id = "<%=e.getId()%>">
                             <td><%=e.getName()%></td>
                             <td><%=e.getProvincia()%></td>
                             <td><%=e.getLocalita()%></td>
@@ -54,9 +54,10 @@
                             <td><%=e.getNomevolgare()%></td>
                             <td><%=e.getAltezza()%></td>
                             <td><span style="font-size:20px;" class="glyphicon glyphicon-pencil"></span></td>
-                            <td><span style="font-size:20px; color: red;" class="glyphicon glyphicon-remove"></span></td>
+                            <td><button type="button" data-toggle="modal" data-target="#elimina"><span style="font-size:20px; color: red;" class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
-                        <%}%>
+                        <%}
+                            // %>
                         </tbody>
                     </table>
 
@@ -68,6 +69,43 @@
 
 </div>
 
+<!--modal per eliminare un albero-->
+<div class="modal" id="elimina" tabindex="-1" role="dialog" aria-labelledby="eliminaModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="eliminaModalLabel">Attenzione</h4>
+            </div>
+            <!--body-->
+            <div class="modal-body">
+                <label>Sei sicuro di voler eliminare l'albero?</label>
+            </div>
+            <!--footer -->
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary removeX" data-dismiss="modal" onclick="fRemoveAlberoRiuscito()">Si, elimina</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" >Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-success alert-dismissible" id="removeAlberoRiuscito">
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Perfetto!</strong> Albero rimosso con successo dal sistema.<br>
+</div>
+
+<script>
+
+document.getElementById("removeAlberoRiuscito").style.display="none";
+function fRemoveAlberoRiuscito(){
+    document.getElementById("removeAlberoRiuscito").style.display="block";
+}
+
+</script>
+<script type="text/javascript" src= "js/controlCatalog.js"></script>
 <%@include file= "footer.jsp" %>
 
 </body>

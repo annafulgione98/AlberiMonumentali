@@ -53,12 +53,11 @@ public class Operation {
     }
 
     //per inserire valori FUNZIONA
-    public void insert(String myfid, String myName, String myProvincia, String myLocalita, Double myAltitudine, String myNomeScientifico, String myNomevolgare, Double myAltezza, String mySchede, String mylat, String mylng){
+    public void insert(String myName, String myProvincia, String myLocalita, Double myAltitudine, String myNomeScientifico, String myNomevolgare, Double myAltezza, String mySchede){
 
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
         Document document = new Document("title","MongoDB")
-                .append("Fid", myfid)
                 .append("NAME", myName)
                 .append("PROVINCIA", myProvincia)
                 .append("LOCALITA", myLocalita)
@@ -66,9 +65,7 @@ public class Operation {
                 .append("NOME_SCIENTIFICO", myNomeScientifico)
                 .append("NOME_VOLGARE", myNomevolgare)
                 .append("ALTEZZA", myAltezza)
-                .append("SCHEDA", mySchede)
-                .append("LATITUDINE", mylat)
-                .append("LONGITUDINE", mylng);
+                .append("SCHEDA", mySchede);
         collection.insertOne(document);
         System.out.println("Documento inserito con successo");
     }
@@ -88,28 +85,28 @@ public class Operation {
         while(it.hasNext()){
             org.bson.Document document= (org.bson.Document) it.next();
 
-            AlberiMonumentaliBean albero= new AlberiMonumentaliBean(document.getString("Fid"),document.getString("NAME"), document.getString("PROVINCIA"), document.getString("LOCALITA"), document.getDouble("ALTITUDINE"), document.getString("NOME_SCIENTIFICO"), document.getString("NOME_VOLGARE"), document.getDouble("ALTEZZA"), document.getString("SCHEDA"),document.getString("LATITUDINE"),document.getString("LONGITUDINE"));
+            AlberiMonumentaliBean albero= new AlberiMonumentaliBean(document.getObjectId("_id"),document.getString("NAME"), document.getString("PROVINCIA"), document.getString("LOCALITA"), document.getDouble("ALTITUDINE"), document.getString("NOME_SCIENTIFICO"), document.getString("NOME_VOLGARE"), document.getDouble("ALTEZZA"), document.getString("SCHEDA"));
             arrayAlberi.add(albero);
             i++;
         }
        return arrayAlberi;
     }
     //per modificare altezza FUNZIONA
-    public void update(String myFid, Double myAltezza){
+    public void update(Object id, Double myAltezza){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
-        collection.updateOne(Filters.eq("Fid", myFid), Updates.set("ALTEZZA", myAltezza));
+        collection.updateOne(Filters.eq("_id", id), Updates.set("ALTEZZA", myAltezza));
         System.out.println("Altezza modificata con successo");
 
     }
 
     //cancellare documento FUNZIONA
-    public void remove(String myFid){
+    public void remove(Object id){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
-        collection.deleteOne(Filters.eq("Fid", myFid));
+        collection.deleteOne(Filters.eq("_id", id));
         System.out.println("Documento cancellato con successo");
     }
 }

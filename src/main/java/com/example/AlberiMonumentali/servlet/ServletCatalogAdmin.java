@@ -19,7 +19,7 @@ public class ServletCatalogAdmin extends HttpServlet {
         Boolean isAdmin = (Boolean) request.getSession().getAttribute("isAdmin");
         ArrayList<AlberiMonumentaliBean> arrayAlberi ;
         Operation op= new Operation();
-        System.out.println("CI ARRIVO in Servlet catalogAdmin");
+
         if(isAdmin == null ? false : isAdmin.booleanValue())
         {
             try {
@@ -30,11 +30,9 @@ public class ServletCatalogAdmin extends HttpServlet {
             }
             response.setContentType("text/html");
             request.setAttribute("arrayAlberi", arrayAlberi);
-            System.out.println("CI ARRIVO in if");
             request.getRequestDispatcher(response.encodeURL("/catalogoadmin.jsp")).forward(request, response);
         }
         else{
-            System.out.println("CI ARRIVO ma in else");
             response.sendRedirect("login.jsp");
         }
 
