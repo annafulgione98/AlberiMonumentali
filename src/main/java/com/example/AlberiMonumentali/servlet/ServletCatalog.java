@@ -9,6 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ServletCatalog", value = "/ServletCatalog")
@@ -16,34 +17,36 @@ public class ServletCatalog extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected String URL;
-    protected int numEl= 40;
+    protected int numEl = 40;
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<AlberiMonumentaliBean> arrayAlberi ;
-       // String pg = request.getParameter("pg");
-       // int pgNumber = pg == null || "".equals(pg) ? 1 : Integer.parseInt(pg);
+        ArrayList<AlberiMonumentaliBean> arrayAlberi;
+        // String pg = request.getParameter("pg");
+        // int pgNumber = pg == null || "".equals(pg) ? 1 : Integer.parseInt(pg);
 
-        Operation op= new Operation();
+        Operation op = new Operation();
+
 
         try {
             arrayAlberi = op.retrieve();
 
-
-          //  Paginator<AlberiMonumentaliBean> pager = new Paginator<AlberiMonumentaliBean>(numEl, pgNumber);
-           // Paginator<AlberiMonumentaliBean>.Pair obj = pager.paginate(arrayAlberi);
-          //  arrayAlberi = (ArrayList<AlberiMonumentaliBean>) obj.pagedList;
-          //  request.setAttribute("maxPg", obj.maxPg);
+            //  Paginator<AlberiMonumentaliBean> pager = new Paginator<AlberiMonumentaliBean>(numEl, pgNumber);
+            // Paginator<AlberiMonumentaliBean>.Pair obj = pager.paginate(arrayAlberi);
+            //  arrayAlberi = (ArrayList<AlberiMonumentaliBean>) obj.pagedList;
+            //  request.setAttribute("maxPg", obj.maxPg);
         } catch (Exception e) {
-           // response.sendRedirect(response.encodeURL("error.jsp"));
+            // response.sendRedirect(response.encodeURL("error.jsp"));
             e.printStackTrace();
             return;
         }
         response.setContentType("text/html");
         request.setAttribute("arrayAlberi", arrayAlberi);
         request.getRequestDispatcher(response.encodeURL("/catalogo.jsp")).forward(request, response);
-    }
+
+}
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

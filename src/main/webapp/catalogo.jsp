@@ -13,8 +13,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/index.css">
-
     <title>Catalogo</title>
+
+
+    <style>
+        #scheda:hover { cursor: pointer; }
+    </style>
+
 </head>
 <body>
 
@@ -62,7 +67,7 @@
                             <td><%=e.getNomeScientifico()%></td>
                             <td><%=e.getNomevolgare()%></td>
                             <td><%=e.getAltezza()%></td>
-                            <td><%=e.getSchede()%></td>
+                            <td id="scheda"><a href="<%=e.getSchede()%>"><%=e.getSchede()%></a></td>
                         </tr>
                         <%}%>
                         </tbody>
