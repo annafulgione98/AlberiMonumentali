@@ -19,7 +19,7 @@ $(document).ready(function(){
         var row = $(this).parent().parent().addClass(up);
         var code = $(this).parents().filter("tr").attr("id");
         var altezza = $("."+up+' [role="altezza"]').html();
-        $("."+up+' [role="altezza"]').html('<input type = "number" size = "4">');
+        $("."+up+' [role="altezza"]').html('<input type = "text">');
         var button = $("."+up+' .button');
         $(button).html('Update');
         $(button).unbind();

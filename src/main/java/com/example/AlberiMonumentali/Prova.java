@@ -13,7 +13,7 @@ public class Prova {
         arrayAlberi= operazioni.retrieve();
 
        // operazioni.insert( "prova", "salerno", "salerno", 1.11, "prova", "prova", 1.11, "prova", "prova", "prova");
-
+        //ObjectId id = 60bc8cf29d149a2ef021cb0b;
         operazioni.update("60bc8cf29d149a2ef021cb0b", 9.99);
 
         operazioni.remove("60bc8cf29d149a2ef021cb0b");

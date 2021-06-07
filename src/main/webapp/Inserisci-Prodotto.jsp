@@ -131,13 +131,13 @@
 
 
 <!-- FORM PER L'INSERIMENTO DEI DATI PER L'INSERIMENTO DI UN NUOVO PRODOTTO -->
-<form  action="InsertProduct" id="accedieregistrati"
+<form  action="ServletAddAlbero" id="accedieregistrati" method="post"
       class="form-horizontal">
 
     <div class="form-group">
         <%--@declare id="nome"--%><label for="nome" class="col-sm-2 control-label">Luogo</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="luogo"
+            <input type="text" class="form-control" name="name"
                    placeholder="Luogo">
         </div>
     </div>
@@ -207,8 +207,7 @@
     </div>
 
     <div style="text-align: center" class="form-actions">
-        <button type="submit" class="btn btn-success btn-large">Inserisci
-            albero</button>
+        <button type="submit" class="btn btn-success btn-large addAlbero">Inserisci albero</button>
         <button type="reset" class="btn">Annulla</button>
 
         <div class="col-sm-offset-2 col-sm-10"></div>
@@ -219,4 +218,5 @@
 </form>
 
 </body>
+
 </html>

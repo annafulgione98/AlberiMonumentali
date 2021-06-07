@@ -28,17 +28,13 @@ public class Login extends HttpServlet {
 
         HttpSession session = req.getSession();
         String  param1 = req.getParameter("uname");
-                     System.out.println(param1);
-               String param2 = req.getParameter("psw");
-                     System.out.println(param2);
-
+        String param2 = req.getParameter("psw");
 
         Operation op= new Operation();
         boolean flag= op.getUser(param1, param2);
-        System.out.println(flag);
+
         if(flag){
             session.setAttribute("isAdmin", true);
-            System.out.println("CI ARRIVO");
             resp.setContentType("text/html");
             req.getRequestDispatcher(resp.encodeURL("/homeAdmin.jsp")).forward(req, resp);
         }

@@ -26,9 +26,6 @@ public class ServletControlAdmin extends HttpServlet {
                 if (action.equalsIgnoreCase("delete")) {
                     Object id = request.getParameter("id");
                     op.remove(id);
-                } else if (action.equalsIgnoreCase("insert")) {
-                    op.insert(request.getParameter("name"), request.getParameter("provincia"), request.getParameter("localita"), Double.parseDouble(request.getParameter("altitudine")), request.getParameter("nomeScientifico"), request.getParameter("nomeVolgare"), Double.parseDouble(request.getParameter("altezza")), request.getParameter("scheda"));
-
                 } else if (action.equalsIgnoreCase("modify")) {
                     Object id = request.getParameter("id");
                     Double altezza=Double.parseDouble(request.getParameter("altezza"));
