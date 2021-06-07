@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <title>Navbar</title>
 </head>
 <body>
@@ -24,10 +27,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="homeAdmin.jsp">Home</a></li>
                 <li><a href="ServletCatalogAdmin">CATALOGO</a></li>
+                <li><a href="Inserisci-Prodotto.jsp">INSERISCI ALBERO</a></li>
                 <li> <a href="Logout" class="btn">
-                        <span class="glyphicon glyphicon-log-out"></span> Log out
+                        <span class="glyphicon glyphicon-log-out"></span> LOG-OUT
                     </a>
                 </li>
 

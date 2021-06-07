@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $(".removeX").click (remove);
-
     function remove () {
         var row = $(this).parents().filter("tr");
         var code = $(row).attr("id");
@@ -12,9 +11,7 @@ $(document).ready(function(){
                 alert("Non e' stato possibile rimuovere il prodotto");
             })
     }
-
     $(".button").click(prova);
-
     function prova (){
         var i=0;
         i++;
@@ -22,27 +19,19 @@ $(document).ready(function(){
         var row = $(this).parent().parent().addClass(up);
         var code = $(this).parents().filter("tr").attr("id");
         var altezza = $("."+up+' [role="altezza"]').html();
-
-
         $("."+up+' [role="altezza"]').html('<input type = "number" size = "4">');
         var button = $("."+up+' .button');
         $(button).html('Update');
         $(button).unbind();
         $(button).click(function () {
-
-             var newAltezza = $("."+up+' [role="altezza"] input').val();
-
-
+            var newAltezza = $("."+up+' [role="altezza"] input').val();
             if (newAltezza == undefined) {
                 alert ("Uno dei campi di input non e' stato riempito");
-
                 console.log(newAltezza);
                 $("."+up+' [role="altezza"]').html(altezza);
-
                 $(button).unbind();
                 $(button).html('Modifica');
                 $(button).click(prova);
-
                 return;
             }
             else {
@@ -50,7 +39,6 @@ $(document).ready(function(){
                 $.post ("ServletControlAdmin", {act: "modify" ,id : code, altezza: newAltezza})
                     .done(function (json) {
                         $("."+up+' [role="altezza"]').html(json.newAltezza);
-
                     })
                     .fail (function () {
                         alert("Modifica fallita!");
@@ -63,9 +51,7 @@ $(document).ready(function(){
                         if($("input").length == 0)
                             i = 0;
                     })
-
             }
         });
     }
-
 });
