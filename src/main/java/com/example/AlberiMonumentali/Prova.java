@@ -10,17 +10,18 @@ public class Prova {
         System.out.println("CIAOO SONO IL MAIN");
         Operation operazioni= new Operation();
         ArrayList<AlberiMonumentaliBean> arrayAlberi= new ArrayList<AlberiMonumentaliBean>();
-        // arrayAlberi= operazioni.retrieve();
+        arrayAlberi= operazioni.retrieve();
 
-       // operazioni.insert("200", "prova", "salerno", "salerno", 1.11, "prova", "prova", 1.11, "prova", "prova", "prova");
+       // operazioni.insert( "prova", "salerno", "salerno", 1.11, "prova", "prova", 1.11, "prova", "prova", "prova");
 
-        //operazioni.update("200", 9.99);
-       // operazioni.remove("200");
+        operazioni.update("60bc8cf29d149a2ef021cb0b", 9.99);
 
-     /*   for (int i=0;i<arrayAlberi.size();i++){
-                System.out.println(arrayAlberi.get(i).getFid() +", "+arrayAlberi.get(i).getName() +", "+arrayAlberi.get(i).getNomevolgare());
+        operazioni.remove("60bc8cf29d149a2ef021cb0b");
 
-        }*/
+        for (int i=0;i<arrayAlberi.size();i++){
+                System.out.println(arrayAlberi.get(i).getId() +", "+arrayAlberi.get(i).getName() +", "+arrayAlberi.get(i).getNomevolgare());
+
+        }
 
         boolean flag= operazioni.getUser("claudiabuono99@gmail.com", "claudiabuono");
 

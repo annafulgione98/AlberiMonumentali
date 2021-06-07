@@ -46,15 +46,15 @@
                         <%
                             for (AlberiMonumentaliBean e : list) { %>
                         <tr id = "<%=e.getId()%>">
-                            <td><%=e.getName()%></td>
-                            <td><%=e.getProvincia()%></td>
-                            <td><%=e.getLocalita()%></td>
-                            <td><%=e.getAltitudine()%></td>
-                            <td><%=e.getNomeScientifico()%></td>
-                            <td><%=e.getNomevolgare()%></td>
-                            <td><%=e.getAltezza()%></td>
-                            <td><span style="font-size:20px;" class="glyphicon glyphicon-pencil"></span></td>
-                            <td><button type="button" data-toggle="modal" data-target="#elimina"><span style="font-size:20px; color: red;" class="glyphicon glyphicon-remove"></span></button></td>
+                            <td role = "nomeLuogo"><%=e.getName()%> </td>
+                            <td role = "provincia"><%=e.getProvincia()%></td>
+                            <td role = "localita"><%=e.getLocalita()%></td>
+                            <td role = "altitudine"><%=e.getAltitudine()%></td>
+                            <td role = "nomes"><%=e.getNomeScientifico()%></td>
+                            <td role = "nomev"><%=e.getNomevolgare()%></td>
+                            <td role = "altezza"><%=e.getAltezza()%></td>
+                            <td><button id ="<%=e.getId()%>" type="submit" class="button button2 submitter">Modifica</button></td>
+                            <td><button type="button" class="removeX"><span style="font-size:20px; color: red;" class="glyphicon glyphicon-remove"></span></button></td>
                         </tr>
                         <%}
                             // %>
@@ -82,7 +82,7 @@
             </div>
             <!--body-->
             <div class="modal-body">
-                <label>Sei sicuro di voler eliminare l'albero?</label>
+                <label>Sei sicuro di voler eliminare l'albero? </label>
             </div>
             <!--footer -->
             <div class="modal-footer">

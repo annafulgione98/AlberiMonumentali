@@ -25,20 +25,20 @@ public class ServletControlAdmin extends HttpServlet {
             {
                 if (action.equalsIgnoreCase("delete")) {
                     Object id = request.getParameter("id");
-                    System.out.println(id);
                     op.remove(id);
                 } else if (action.equalsIgnoreCase("insert")) {
                     op.insert(request.getParameter("name"), request.getParameter("provincia"), request.getParameter("localita"), Double.parseDouble(request.getParameter("altitudine")), request.getParameter("nomeScientifico"), request.getParameter("nomeVolgare"), Double.parseDouble(request.getParameter("altezza")), request.getParameter("scheda"));
 
                 } else if (action.equalsIgnoreCase("modify")) {
-                    AlberiMonumentaliBean albero= new AlberiMonumentaliBean();
                     Object id = request.getParameter("id");
-                    op.update(id,Double.parseDouble(request.getParameter("altezza")));
-                    // devofare anche la set?
+                    Double altezza=Double.parseDouble(request.getParameter("altezza"));
+                    op.update(id,altezza);
+
                     if (request.getHeader("x-requested-with")!= null){
                         response.setContentType("application/json");
                         JsonObject obj = new JsonObject ();
-                        obj.addProperty("newAltezza", albero.getAltezza()+"&#8364;");
+                        obj.addProperty("newAltezza", altezza);
+                        System.out.println(obj);
                         response.getWriter().write(new com.google.gson.Gson().toJson(obj));
                     }
                 }
