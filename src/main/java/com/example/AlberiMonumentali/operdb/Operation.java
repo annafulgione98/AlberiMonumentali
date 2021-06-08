@@ -11,7 +11,7 @@ import com.mongodb.client.model.Updates;
 import connector.MyCollection;
 import connector.MyCollectionUser;
 import org.bson.Document;
-
+import org.bson.types.ObjectId;
 
 
 public class Operation {
@@ -92,7 +92,7 @@ public class Operation {
        return arrayAlberi;
     }
     //per modificare altezza FUNZIONA
-    public void update(Object id, Double myAltezza){
+    public void update(ObjectId id, Double myAltezza){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 
@@ -102,7 +102,7 @@ public class Operation {
     }
 
     //cancellare documento FUNZIONA
-    public void remove(Object id){
+    public void remove(ObjectId id){
         MyCollection sc = new MyCollection();
         MongoCollection<Document> collection= sc.getMyCollection();
 

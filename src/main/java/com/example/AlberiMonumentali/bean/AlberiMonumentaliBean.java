@@ -1,7 +1,9 @@
 package com.example.AlberiMonumentali.bean;
 
+import org.bson.types.ObjectId;
+
 public class AlberiMonumentaliBean {
-    private Object id;
+    private ObjectId id;
     private String name;
     private String provincia;
     private String localita;
@@ -14,7 +16,7 @@ public class AlberiMonumentaliBean {
 
     public AlberiMonumentaliBean(){}
 
-    public AlberiMonumentaliBean( Object id,  String name, String provincia, String localita, Double altitudine, String nomeScientifico, String nomevolgare, Double altezza, String schede){
+    public AlberiMonumentaliBean( ObjectId id,  String name, String provincia, String localita, Double altitudine, String nomeScientifico, String nomevolgare, Double altezza, String schede){
         this.id= id;
         this.name= name;
         this.provincia= provincia;
@@ -91,11 +93,11 @@ public class AlberiMonumentaliBean {
     }
 
 
-    public Object getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Object id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 }

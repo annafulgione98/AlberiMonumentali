@@ -35,7 +35,7 @@
 
 </div>
 <!-- Second Container -->
-<div  class="container-fluid bg-2 text-center">
+<div  class="container-fluid bg-2 text-center" style="padding: 15px;">
     <a name="what"></a>
     <section class="ftco-section ftco-cart">
         <div class="row ">
@@ -67,7 +67,7 @@
                             <td><%=e.getNomeScientifico()%></td>
                             <td><%=e.getNomevolgare()%></td>
                             <td><%=e.getAltezza()%></td>
-                            <td id="scheda"><a href="<%=e.getSchede()%>"><%=e.getSchede()%></a></td>
+                            <td id="scheda"><a href="<%=e.getSchede()%>"><button type="button" class="removeX"><span style="font-size:20px; color: #27ae60;" class="glyphicon glyphicon-zoom-in"></span></button></a></td>
                         </tr>
                         <%}%>
                         </tbody>
