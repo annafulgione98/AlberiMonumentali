@@ -61,7 +61,7 @@
                         </tbody>
                     </table>
 
-                    <p style = "text-align: center">pg <input class = "pageof" type = "number" value = "1" min="1" max="<%= request.getAttribute("maxPg") %>"> of <%= request.getAttribute("maxPg") %> <button id = "submit">Invia</button></p>
+
                 </div>
             </div>
         </div>

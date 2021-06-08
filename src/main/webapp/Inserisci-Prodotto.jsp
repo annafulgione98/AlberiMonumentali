@@ -146,10 +146,17 @@
     <div class="form-group">
         <%--@declare id="nome"--%><label for="nome" class="col-sm-2 control-label">Provincia</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="provincia"
-                   placeholder="Provincia">
+            <select class="form-control" name="provincia" id="sel1">
+                <option>Avellino</option>
+                <option>Benevento</option>
+                <option>Caserta</option>
+                <option>Napoili</option>
+                <option>Salerno</option>
+
+            </select>
         </div>
     </div>
+
 
     <div class="form-group">
         <%--@declare id="nome"--%><label for="nome" class="col-sm-2 control-label">Località</label>
