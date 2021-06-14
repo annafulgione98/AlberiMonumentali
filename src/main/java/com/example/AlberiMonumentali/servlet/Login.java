@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
         String param2 = req.getParameter("psw");
 
         Operation op= new Operation();
-        boolean flag= op.getUser(param1, param2);
+        boolean flag= op.isUserDb(param1, param2);
 
         if(flag){
             session.setAttribute("isAdmin", true);
@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
         }
         else{
             resp.setContentType("text/html");
-            req.getRequestDispatcher(resp.encodeURL("/index.jsp")).forward(req, resp);
+            req.getRequestDispatcher(resp.encodeURL("/errorLogin.jsp")).forward(req, resp);
         }
     }
 

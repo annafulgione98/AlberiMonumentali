@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
-
-    <title>Catalogo Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Alberi</title>
 </head>
 <body>
 
@@ -22,17 +22,17 @@
     ArrayList<AlberiMonumentaliBean> list =(ArrayList<AlberiMonumentaliBean>) request.getAttribute("arrayAlberi");
 %>
 <!-- Second Container -->
-<div  class="container-fluid bg-2 text-center">
+<div  class="container-fluid bg-2 text-center" style="margin: 40px;">
     <section class="ftco-section ftco-cart">
         <div class="row ">
             <div class="card x">
                 <div class="cart-list">
-                    <h1>Gli alberi monumentali della Campania</h1>
+                    <h1>Alberi monumentali a <%=list.get(0).getProvincia()%></h1>
+                    <input class="form-control" id="myInput" type="text" placeholder="Cerca...">
                     <table class="table">
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>Luogo</th>
-                            <th>Provincia</th>
                             <th>Localit&#224;</th>
                             <th>Altitudine</th>
                             <th>Nome scientifico</th>
@@ -42,12 +42,11 @@
                             <th>Elimina</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                         <%
                             for (AlberiMonumentaliBean e : list) { %>
                         <tr id = "<%=e.getId()%>">
                             <td role = "nomeLuogo"><%=e.getName()%> </td>
-                            <td role = "provincia"><%=e.getProvincia()%></td>
                             <td role = "localita"><%=e.getLocalita()%></td>
                             <td role = "altitudine"><%=e.getAltitudine()%></td>
                             <td role = "nomes"><%=e.getNomeScientifico()%></td>
@@ -103,6 +102,17 @@ document.getElementById("removeAlberoRiuscito").style.display="none";
 function fRemoveAlberoRiuscito(){
     document.getElementById("removeAlberoRiuscito").style.display="block";
 }
+
+
+    $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+
 
 </script>
 <script type="text/javascript" src= "js/controlCatalog.js"></script>

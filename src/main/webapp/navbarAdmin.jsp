@@ -38,7 +38,7 @@
                         <li><a href="ServletCatalogAdmin?provincia=s">Salerno</a></li>
                     </ul>
                 </li>
-                <li><a href="Inserisci-Prodotto.jsp">INSERISCI ALBERO</a></li>
+                <li><a href="addAlbero.jsp">INSERISCI ALBERO</a></li>
                 <li> <a href="Logout" class="btn">
                         <span class="glyphicon glyphicon-log-out"></span> LOG-OUT
                     </a>

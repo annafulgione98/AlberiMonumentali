@@ -24,9 +24,9 @@ public class Prova {
 
         }*/
 
-        boolean flag= operazioni.getUser("claudiabuono99@gmail.com", "claudiabuono");
+        //boolean flag= operazioni.getUser("claudiabuono99@gmail.com", "claudiabuono");
 
-        if(flag) System.out.println("utente presente");
-        else System.out.println("utente assente");
+        //if(flag) System.out.println("utente presente");
+       // else System.out.println("utente assente");
     }
 }

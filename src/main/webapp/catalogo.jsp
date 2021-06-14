@@ -35,19 +35,18 @@
 
 </div>
 <!-- Second Container -->
-<div  class="container-fluid bg-2 text-center" style="padding: 15px;">
+<div  class="container-fluid bg-2 text-center" style="margin: 40px;">
     <a name="what"></a>
     <section class="ftco-section ftco-cart">
         <div class="row ">
             <div class="card x">
                 <div class="cart-list">
-
-                    <h1>Lista degli alberi monumentali della Campania</h1>
-                    <table class="table">
+                     <h1>Alberi monumentali a <%=list.get(0).getProvincia()%></h1>
+                    <input class="form-control" id="myInput" type="text" placeholder="Cerca...">
+                    <table class="table table-striped">
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>Luogo</th>
-                            <th>Provincia</th>
                             <th>Localit&#224;</th>
                             <th>Altitudine</th>
                             <th>Nome scientifico</th>
@@ -56,12 +55,11 @@
                             <th>Scheda</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                         <%
                             for (AlberiMonumentaliBean e : list) { %>
                         <tr>
                             <td><%=e.getName()%></td>
-                            <td><%=e.getProvincia()%></td>
                             <td><%=e.getLocalita()%></td>
                             <td><%=e.getAltitudine()%></td>
                             <td><%=e.getNomeScientifico()%></td>
@@ -81,6 +79,17 @@
 </div>
 
 <%@include file= "footer.jsp" %>
+<script>
 
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+</script>
 </body>
 </html>
